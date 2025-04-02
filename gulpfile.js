@@ -7,7 +7,14 @@ function styles() {
         .pipe(gulp.dest('./dist/css')); // Esse código executado cria uma pasta dist e um arquivo "main.css"\\
 }
 
-exports.default = styles;
+function images() {
+    return gulp.src('./src/images/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('./dist/images')); // Esse código executado ele cria a minificação das imagens"\\
+}
+
+exports.default = gulp.parallel(styles, images);
+
 exports.watch = function () {
     gulp.watch('./src/styles/*.scss', gulp.parallel(styles))
 }
