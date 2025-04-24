@@ -18,7 +18,7 @@ function styles() {
 function images() {
     return gulp.src('./src/images/**/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('./dist/images')); // Esse código executado ele cria a minificação das imagens"\\
+        .pipe(gulp.dest('./dist/images'));
 }
 
 exports.default = gulp.parallel(styles, images, scripts);
